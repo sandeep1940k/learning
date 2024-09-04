@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import loginVector from '../images/login-vector.png';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
 
 const Login = () => {
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const formValues = watch();
+  const [isShowPassword, setIsShowPassword] = useState(false);
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const handleShowPassword = () => {
+    setIsShowPassword(prevState => !prevState);
+  };
+
   return (
     <div className='login-container'>
       <div className='login-layout'>
@@ -20,38 +35,59 @@ const Login = () => {
               <h4>Welcome to learning! &#128400;</h4>
               <p>Please sign-in to your account and start the adventure</p>
             </div>
-            <form action="/login" method="POST">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className='login-form-element'>
                 <label htmlFor="email">Email</label>
                 <div className='login-custom-input'>
-                  <input type="email" id="email" />
+                  <input type="email" id="email" {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: 'Please enter a valid email address'
+                    }
+                  })} />
                 </div>
+                {errors.email && <div className='login-error'>{errors.email.message}</div>}
               </div>
               <div className='login-form-element'>
                 <label htmlFor="password">Password</label>
                 <div className='login-custom-input'>
-                  <input type="password" id="password" />
+                  <input type={isShowPassword ? 'text' : 'password'} id="password" {...register('password', {
+                    required: 'Password is required',
+                    minLength: { value: 6, message: 'Password should be at least 6 characters long' }
+                  })} />
                   <div className='login-eye-input'>
-                    <button type="button" className='button-base-eye'>
-                      <i className="ri-eye-off-line"></i>
+                    <button type="button" className='button-base-eye' onClick={handleShowPassword}>
+                      <i className={isShowPassword ? 'ri-eye-line' : 'ri-eye-off-line'}></i>
                     </button>
                   </div>
                 </div>
+                {errors.password && <div className='login-error'>{errors.password.message}</div>}
               </div>
               <div className='login-forgot-base'>
-                <label htmlFor="remember-me" className='login-forgot-label'>
+                <label htmlFor="rememberMe" className='login-forgot-label'>
                   <span>
-                    <input type="checkbox" id="remember-me" className='login-checkbox' />
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7C4 5.34315 5.34315 4 7 4H17C18.6569 4 20 5.34315 20 7V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7Z" stroke="var(--mui-palette-text-disabled)" stroke-width="2"></path></svg>
+                    <input type="checkbox" id="rememberMe" className='login-checkbox' {...register('rememberMe', { required: 'Please select' })} />
+                    {formValues.rememberMe ?
+                      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 7C3 4.79086 4.79086 3 7 3H17C19.2091 3 21 4.79086 21 7V17C21 19.2091 19.2091 21 17 21H7C4.79086 21 3 19.2091 3 17V7Z" fill="currentColor"></path>
+                        <path d="M11 13.793L9.35348 12.1465L8.64648 12.8535L11 15.207L15.8535 10.3535L15.1465 9.6465L11 13.793Z" fill="white"></path>
+                      </svg>
+                      :
+                      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7C4 5.34315 5.34315 4 7 4H17C18.6569 4 20 5.34315 20 7V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7Z" stroke="var(--mui-palette-text-disabled)" strokeWidth="2"></path>
+                      </svg>
+                    }
                   </span>
                   <span>Remember me</span>
                 </label>
+              {errors.rememberMe && <div className='login-error'>{errors.rememberMe.message}</div>}
                 <a href="/forgot-password">Forgot password?</a>
               </div>
               <button type="submit" className='login-button'>Login</button>
               <div className='login-account-base'>
                 <p>New on our platform?</p>
-                <a href="/signup">Create an account</a>
+                <Link to="/signup">Create an account</Link>
               </div>
             </form>
           </div>
