@@ -19,4 +19,8 @@
     --primary-contrastText:#fff;
     --action-active: rgb(34, 48, 62, 0.600);
     --input-error: #ff0000;
+
+    --drawer-z-index: 1200;
+
+    --customShadows-sm: 0px 2px 6px rgb(var(--mui-mainColorChannels-lightShadow) / 0.08);
 }

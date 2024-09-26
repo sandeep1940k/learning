@@ -1,0 +1,18 @@
+const COMMON = {
+    PLEASE: 'please',
+    SUCCESSFULLY: 'successfully',
+    EMAIL_OR_PASSWORD: 'email or password',
+}
+
+const MESSAGE = {
+    PLEASE_CHANGE_EMAIL_OR_PASSWORD: `${COMMON.PLEASE} change ${COMMON.EMAIL_OR_PASSWORD}.`,
+    PLEASE_CORRECT_EMAIL_OR_PASSWORD: `${COMMON.PLEASE} correct ${COMMON.EMAIL_OR_PASSWORD}.`,
+    
+    SIGNUP_SUCCESSFULLY: `signup ${COMMON.SUCCESSFULLY}.`,
+    LOGIN_SUCCESSFULLY: `login ${COMMON.SUCCESSFULLY}.`,
+
+}
+
+module.exports = {
+    MESSAGE
+}

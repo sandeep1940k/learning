@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import { useForm } from 'react-hook-form'
 import loginVector from '../assets/images/login-vector.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { http } from "../services";
+import { toast } from 'react-toastify';
+import { STATUS } from "../constant/http-status-code.constant";
+
 
 function Signup() {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const formValues = watch();
     const [isShowPassword, setIsShowPassword] = useState(false);
-
+    const navigate = new useNavigate();
     const onSubmit = async (data) => {
         try {
-          console.log(data);
-          const response = await http.post('/api/authentication/signup', data);
-          console.log(response);
+            const response = await http.post('/api/authentication/signup', data);
+            console.log('response.status', response)
+            if(response.status === STATUS.CREATED){
+                toast.success(response.data.message)
+                navigate('/')
+            }
         } catch (error) {
-          console.error(error);
+            if (error?.response?.data?.message) {
+                toast.error(error.response.data.message)
+            }
         }
-      };
+    };
 
     const handleShowPassword = () => {
         setIsShowPassword(prevState => !prevState);
