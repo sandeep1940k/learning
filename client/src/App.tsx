@@ -1,8 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import 'remixicon/fonts/remixicon.css';
+
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Tailwindcss from './routes/tailwindcss.routes';
 import TypeScript from './routes/typescript.routes';
+
 
 function App() {
   return (
