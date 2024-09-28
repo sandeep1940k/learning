@@ -19,9 +19,14 @@
   @media(max-width: 1100px){
     .side-bar-button{
         display: block;
+
     }
     .side-bar{
         position: absolute;
+
+    }
+    .containt{
+        width: 100%;
     }
   }
 

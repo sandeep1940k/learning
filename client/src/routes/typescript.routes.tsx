@@ -5,6 +5,7 @@ import TYPESCRIPT from "../constant/typescript/typescript.constant";
 import Arrays from "../pages/courses/typescript/Arrays";
 import Advantages from "../pages/courses/typescript/Advantages";
 import Disadvantages from "../pages/courses/typescript/Disadvantages";
+import SideBar from "../pages/common/SideBar";
 
 const TypeScript: React.FC = () => {
     const [showSideBar, setShowSideBar] = useState(false);
@@ -30,18 +31,7 @@ const TypeScript: React.FC = () => {
                 </div>
             </nav>
             <div className="flex">
-                <nav className={`${showSideBar ? 'hidden' : 'block'} w-80 side-bar`}>
-                    {TYPESCRIPT.map((property) => (
-                        <div
-                            key={property.id}
-                            onClick={() => handleTypeScript(property.id)}
-                            className="bg-sky-300 p-2  cursor-pointer border text-gray-600 flex justify-center rounded-xl text-xs"
-                        >
-                            {property.name}
-                        </div>
-                    ))}
-                </nav>
-
+                <SideBar list={TYPESCRIPT} showSideBar={showSideBar} handleProperty={handleTypeScript} />
                 <section className="w-full p-10">
                     {location.pathname === '/TS' && <Introduction />}
                     {location.pathname === '/TS/ARRAYS' && <Arrays />}
