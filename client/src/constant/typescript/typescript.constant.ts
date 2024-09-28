@@ -9,6 +9,9 @@ const TYPESCRIPT : TypeScript[] = [
         name: 'Introduction',
     },
     {
+
+    },
+    {
         id: '/ARRAYS',
         name: 'Arrays',
     },

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Introduction from "../pages/courses/typescript/Introduction";
 import TYPESCRIPT from "../constant/typescript/typescript.constant";
 import Arrays from "../pages/courses/typescript/Arrays";
 import Advantages from "../pages/courses/typescript/Advantages";
 import Disadvantages from "../pages/courses/typescript/Disadvantages";
 import SideBar from "../pages/common/SideBar";
+import Header from "../pages/common/Header";
 
 const TypeScript: React.FC = () => {
     const [showSideBar, setShowSideBar] = useState(false);
@@ -14,6 +15,7 @@ const TypeScript: React.FC = () => {
 
     const handleTypeScript = (id: string) => {
         navigate(`/TS${id}`);
+        handleShowSideBar();
     };
 
     const handleShowSideBar = () => {
@@ -22,14 +24,7 @@ const TypeScript: React.FC = () => {
 
     return (
         <>
-            <nav className="bg-green-100 top-0 sticky flex">
-                <div className="px-2">
-                    <i onClick={handleShowSideBar} className={`${showSideBar ? 'ri-bar-chart-fill' : 'ri-bar-chart-horizontal-fill'} cursor-pointer hidden side-bar-button`}></i>
-                </div>
-                <div>
-                    <Link to="/dashboard">Dashboard</Link>
-                </div>
-            </nav>
+            <Header showSideBar={showSideBar} handleShowSideBar={handleShowSideBar} />
             <div className="flex">
                 <SideBar list={TYPESCRIPT} showSideBar={showSideBar} handleProperty={handleTypeScript} />
                 <section className="w-full p-10">

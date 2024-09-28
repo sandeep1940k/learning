@@ -3,15 +3,16 @@ import React from "react";
 const Arrays: React.FC = () => {
     return (
         <>
+            <h1 className="font-bold py-2">Arrays</h1>
             <div className="bg-red-50">
                 <p>A collection of values of the same data type is called an array. It's a kind that's been defined by the user. To store values of the same kind, you use arrays. Arrays are collections of values that are ordered and indexed. The indexing begins at zero, with the first element having index 0, the second having index 1, and so on.</p>
                 <p className="font-bold my-2">Syntax:</p>
                 <p className="bg-black p-2">
                     <span className="text-blue-400 p-2">var</span>
                     <span className="text-white mx-1">array_name</span>
-                    <span className="text-blue-400">:</span> 
+                    <span className="text-blue-400">:</span>
                     <span className="text-white mx-1">datatype</span>
-                    <span className="text-blue-400">[];</span>&nbsp;
+                    <span className="text-blue-400">[];</span>$nbsp;
                     <span className="text-green-500">// declaration</span><br />
                     <span className="text-white p-2">array_name</span>
                     <span className="text-blue-400">=</span>
@@ -21,14 +22,14 @@ const Arrays: React.FC = () => {
                     <span className="text-white mx-1">value2</span>
                     <span className="text-blue-400">,</span>
                     <span className="text-white mx-1">value3</span>
-                    <span className="text-blue-400 mx-1">]</span>&nbsp;
+                    <span className="text-blue-400 mx-1">]</span>$nbsp;
                     <span className="text-green-500">// initialization</span>
                 </p>
                 <p className="font-bold my-2">Example:</p>
                 <p className="bg-black p-2">
                     <span className="text-blue-400 p-2">let</span>
                     <span className="text-white mx-1">values</span>
-                    <span className="text-blue-400">:</span> 
+                    <span className="text-blue-400">:</span>
                     <span className="text-white mx-1">number</span>
                     <span className="text-blue-400">[] = [];</span><br />
                     <span className="text-white p-2">values</span>
