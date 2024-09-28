@@ -25,7 +25,7 @@ const TypeScript: React.FC = () => {
                 <Link to="/dashboard">Dashboard</Link>
             </nav>
             <div className="flex">
-                <nav className={`${showSideBar ? 'ml-[-320px]' : ''} w-80 mx-4`}>
+                <nav className={`${showSideBar ? 'left-[-40%]' : 'left-[0%]'} w-80 side-bar`}>
                     {TYPESCRIPT.map((property) => (
                         <div
                             key={property.id}
@@ -37,7 +37,7 @@ const TypeScript: React.FC = () => {
                     ))}
                 </nav>
                 <section>
-                    <i onClick={handleShowSideBar} className={`${showSideBar ? 'ri-bar-chart-fill' : 'ri-bar-chart-horizontal-fill'} cursor-pointer`}></i>
+                    <i onClick={handleShowSideBar} className={`${showSideBar ? 'ri-bar-chart-fill' : 'ri-bar-chart-horizontal-fill left-[20rem]'} cursor-pointer hidden side-bar-button`}></i>
                 </section>
                 <section className="w-full p-10">
                     {location.pathname === '/TS' && <Introduction />}

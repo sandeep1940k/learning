@@ -16,3 +16,12 @@
     }
   }
   
+  @media(max-width: 1100px){
+    .side-bar-button{
+        display: block;
+        position: absolute;
+    }
+    .side-bar{
+        position: absolute;
+    }
+  }
