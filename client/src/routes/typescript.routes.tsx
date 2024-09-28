@@ -21,24 +21,27 @@ const TypeScript: React.FC = () => {
 
     return (
         <>
-            <nav className="bg-green-100 top-0 sticky">
-                <Link to="/dashboard">Dashboard</Link>
+            <nav className="bg-green-100 top-0 sticky flex">
+                <div className="px-2">
+                    <i onClick={handleShowSideBar} className={`${showSideBar ? 'ri-bar-chart-fill' : 'ri-bar-chart-horizontal-fill'} cursor-pointer hidden side-bar-button`}></i>
+                </div>
+                <div>
+                    <Link to="/dashboard">Dashboard</Link>
+                </div>
             </nav>
             <div className="flex">
-                <nav className={`${showSideBar ? 'left-[-20rem]' : 'left-[0%]'} w-80 side-bar`}>
+                <nav className={`${showSideBar ? 'hidden' : 'block'} w-80 side-bar`}>
                     {TYPESCRIPT.map((property) => (
                         <div
                             key={property.id}
                             onClick={() => handleTypeScript(property.id)}
-                            className="bg-sky-300 p-2  cursor-pointer border text-gray-600 flex justify-center rounded-xl text-sm"
+                            className="bg-sky-300 p-2  cursor-pointer border text-gray-600 flex justify-center rounded-xl text-xs"
                         >
                             {property.name}
                         </div>
                     ))}
                 </nav>
-                <section>
-                    <i onClick={handleShowSideBar} className={`${showSideBar ? 'ri-bar-chart-fill' : 'ri-bar-chart-horizontal-fill left-[20rem]'} cursor-pointer hidden side-bar-button`}></i>
-                </section>
+
                 <section className="w-full p-10">
                     {location.pathname === '/TS' && <Introduction />}
                     {location.pathname === '/TS/ARRAYS' && <Arrays />}
