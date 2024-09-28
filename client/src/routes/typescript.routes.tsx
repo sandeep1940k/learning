@@ -25,7 +25,7 @@ const TypeScript: React.FC = () => {
                 <Link to="/dashboard">Dashboard</Link>
             </nav>
             <div className="flex">
-                <nav className={`${showSideBar ? 'left-[-40%]' : 'left-[0%]'} w-80 side-bar`}>
+                <nav className={`${showSideBar ? 'left-[-20rem]' : 'left-[0%]'} w-80 side-bar`}>
                     {TYPESCRIPT.map((property) => (
                         <div
                             key={property.id}
