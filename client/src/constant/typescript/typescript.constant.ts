@@ -9,7 +9,8 @@ const TYPESCRIPT : TypeScript[] = [
         name: 'Introduction',
     },
     {
-
+        id: '/DECLARE_VARIABLE',
+        name: 'Declare Variable',
     },
     {
         id: '/ARRAYS',
