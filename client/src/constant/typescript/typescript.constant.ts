@@ -13,8 +13,16 @@ const TYPESCRIPT : TypeScript[] = [
         name: 'Declare Variable',
     },
     {
+        id: '/ACCESS_MODIFIERS',
+        name: 'Access Modifiers',
+    },
+    {
         id: '/ARRAYS',
         name: 'Arrays',
+    },
+    {
+        id: '/LOOPS',
+        name: 'Loops',
     },
     {
         id: '/ADVANTAGES',
@@ -24,6 +32,14 @@ const TYPESCRIPT : TypeScript[] = [
         id: '/DISADVANTAGES',
         name: 'Disadvantages',
     },
+    {
+        id: '/CONFIG',
+        name: 'Config',
+    },
+    {
+        id: '/METHODS',
+        name: 'Methods',
+    }
 ]
 
 export default TYPESCRIPT;
